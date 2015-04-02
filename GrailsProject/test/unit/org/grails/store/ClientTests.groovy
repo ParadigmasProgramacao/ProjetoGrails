@@ -1,4 +1,4 @@
-package grailsproject
+package org.grails.store
 
 
 

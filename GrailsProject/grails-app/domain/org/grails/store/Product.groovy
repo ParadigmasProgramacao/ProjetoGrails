@@ -1,5 +1,4 @@
 package org.grails.store
-import Client
 
 /**
  * Product
@@ -29,11 +28,4 @@ class Product {
 		price blank:false, matches:"\\*.d{2}\\"
     }
 	
-	/*
-	 * Methods of the Domain Class
-	 */
-//	@Override	// Override toString for a nicer / more descriptive UI 
-//	public String toString() {
-//		return "${name}";
-//	}
 }

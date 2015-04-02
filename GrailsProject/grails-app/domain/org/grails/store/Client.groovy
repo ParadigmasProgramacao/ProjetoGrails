@@ -1,4 +1,4 @@
-package org.grails
+package org.grails.store
 
 /**
  * Client
