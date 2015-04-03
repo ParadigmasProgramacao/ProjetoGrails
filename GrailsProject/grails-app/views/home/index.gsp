@@ -138,7 +138,9 @@
 	    </div>
 
 	</section>
-
+<sec:ifAllGranted roles="ROLE_SUPER">
+	SEJA BEM-VINDO
+</sec:ifAllGranted> *.*
 </body>
 
 </html>

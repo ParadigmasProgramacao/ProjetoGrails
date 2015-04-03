@@ -1,6 +1,7 @@
 import org.grails.store.User
 import org.grails.store.UserRole
 import org.grails.store.Role
+import org.grails.store.Admin
 
 class BootStrap {
 
@@ -15,7 +16,6 @@ class BootStrap {
     		def superUser = new User(username: 'admin', password: 'admin', enabled: true)
     		superUser.save(flush: true)
     		UserRole.create superUser, superAdminRole, true
-    		printf 'admin add'
     	}
 
     }
