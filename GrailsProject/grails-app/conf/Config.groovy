@@ -95,3 +95,8 @@ log4j = {
 
     debug 'SpringSecurityTwitterGrailsPlugin'
 }
+
+// Added by the Spring Security Core plugin:
+grails.plugins.springsecurity.userLookup.userDomainClassName = 'org.grails.store.User'
+grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'org.grails.store.UserRole'
+grails.plugins.springsecurity.authority.className = 'org.grails.store.Role'

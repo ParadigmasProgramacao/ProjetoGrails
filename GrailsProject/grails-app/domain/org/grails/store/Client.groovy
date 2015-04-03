@@ -4,14 +4,11 @@ package org.grails.store
  * Client
  * A domain class describes the data object and it's mapping to the database
  */
-class Client {
+class Client extends User{
 
 	/* Default (injected) attributes of GORM */
 //	Long	id
 //	Long	version
-	Integer id
-	String username
-	String password
 	String cpf
 	String name
 	String surname
