@@ -9,6 +9,7 @@ class Product {
 	String name
 	String description
 	Float price
+	String genre
   //Integer codProduct // codProduct == id  
 
 //	Date	dateCreated
