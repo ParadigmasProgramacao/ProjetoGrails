@@ -13,18 +13,16 @@ class AdminController {
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index() {
-        params.target = '/admin/page'
+        params.target = '/admin/control'
         redirect(action: "index", params: params, controller: 'login')
     }
 
-    // Define para onde o Adm será enviado aṕos o login
-    def page(){
-        if(springSecurityService.currentUser.username == 'admin'){
-            redirect action: 'list'
-        } else
-            redirect action: 'perfil'
+    @Secured(['ROLE_ADMIN', 'ROLE_SUPER'])
+    def control ={
+        render view: 'control';
     }
 
+    // O usuário 'admin' não tem perfil 
     def isSuperAdmin(){
         if(springSecurityService.currentUser.username == 'admin'){
             redirect action: 'list'
