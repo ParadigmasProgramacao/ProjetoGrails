@@ -1,5 +1,6 @@
 dataSource {
     pooled = true
+    driverClassName = "com.mysql.jdbc.Driver"
     driverClassName = "org.h2.Driver"
     username = "sa"
     password = ""
@@ -14,19 +15,25 @@ environments {
     development {
         dataSource {
             dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
+            url = "jdbc:mysql://localhost/grailsproject?useUnicode=yes&characterEndcoding=UTF-8"
+            username = "root"
+            password = "mysqlmysql"
         }
     }
     test {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
+            url = "jdbc:mysql://localhost/grailsproject_prod?useUnicode=yes&characterEndcoding=UTF-8"
+            username = "root"
+            password = "mysqlmysql"
         }
     }
     production {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:h2:prodDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
+            url = "jdbc:mysql://localhost/grailsproject_prod?useUnicode=yes&characterEndcoding=UTF-8"
+            username = "root"
+            password = "mysqlmysql"
             pooled = true
             properties {
                maxActive = -1
