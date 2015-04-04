@@ -66,6 +66,9 @@ grails.plugins.springsecutiry.securityConfigType = "Annotation"
 environments {
     development {
         grails.logging.jul.usebridge = true
+        grails.paypal.server = "https://www.sandbox.paypal.com/cgi-bin/webscr"
+        grails.paypal.email = "ecult@gmail.com"
+        grails.serverURL = "http://localhost:8080/GrailsProject"
     }
     production {
         grails.logging.jul.usebridge = false
