@@ -9,10 +9,13 @@ class Client extends User{
 	/* Default (injected) attributes of GORM */
 //	Long	id
 //	Long	version
-	String cpf
 	String name
-	String surname
+	String cpf
+	String phone
 	String email
+
+	String cep
+	String endereco
 
 
 	
@@ -29,14 +32,11 @@ class Client extends User{
     }
     
 	static	constraints = {
-		id blank: false, unique: true
-		username blank: false, unique: true
-		password blank: false
-		cpf blank:false, unique: true, matches: "\\d{9}\\-\\d{2}" //"\\([1-9]{2}\\) [1-9]\\d{3,4}-\\d{4}")
+		cpf blank:false, unique: true 
 		name blank: false
-		surname blank: false
-		email blank: false, unique: true, matches: "\\b[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2.4}\\b"
-
+		email blank: false, unique: true
+		endereco blank:false
+		cep blank:false, matches: "\\d{5}-\\d{3}"
     }
 	
 	/*

@@ -13,7 +13,7 @@
 			<div class="control-group fieldcontain ${hasErrors(bean: adminInstance, field: 'password', 'error')} required">
 				<label for="password" class="control-label"><g:message code="admin.password.label" default="Password" /><span class="required-indicator">*</span></label>
 				<div class="controls">
-					<g:textField name="password" required="" value="${adminInstance?.password}"/>
+					<g:passwordField name="password" required="" value="${adminInstance?.password}"/>
 					<span class="help-inline">${hasErrors(bean: adminInstance, field: 'password', 'error')}</span>
 				</div>
 			</div>
