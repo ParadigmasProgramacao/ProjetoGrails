@@ -11,7 +11,7 @@ class Film extends Product {
 //	Long	version
 	Integer releaseYear
 	Integer runtime
-
+	
 	/* Automatic timestamping of GORM */
 //	Date	dateCreated
 //	Date	lastUpdated

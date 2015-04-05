@@ -17,8 +17,6 @@ class Client extends User{
 	String cep
 	String endereco
 
-
-	
 	/* Automatic timestamping of GORM */
 //	Date	dateCreated
 //	Date	lastUpdated
