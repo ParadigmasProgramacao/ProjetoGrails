@@ -2,6 +2,8 @@ import org.grails.store.User
 import org.grails.store.UserRole
 import org.grails.store.Role
 import org.grails.store.Admin
+import org.grails.store.Book
+import org.grails.store.Film
 
 class BootStrap {
 
@@ -18,6 +20,26 @@ class BootStrap {
     		UserRole.create superUser, superAdminRole, true
     	}
 
+
+        def book = new Book(
+                    name: "Drama1",
+                    description: "Best book of Drama",
+                    price: 65,
+                    genre: "Drama",
+                    author: "Best Author",
+                    publisher: "Publisher1",
+                    publicationYear: "2014")
+        book.save(failOnError: true)
+
+        book = new Book(
+                    name: "Drama2",
+                    description: "Second Best book of Drama",
+                    price: 90,
+                    genre: "Drama",
+                    author: "Best Author",
+                    publisher: "Publisher2",
+                    publicationYear: "2011")
+        book.save(failOnError: true)
     }
 
     def destroy = {
