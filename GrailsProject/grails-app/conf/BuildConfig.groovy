@@ -68,5 +68,7 @@ grails.project.dependency.resolution = {
         compile ":spring-security-core:1.2.7.2"
 
         compile ":paypal:0.6.10"
+        
+        compile ":searchable:0.6.9"
     }
 }
