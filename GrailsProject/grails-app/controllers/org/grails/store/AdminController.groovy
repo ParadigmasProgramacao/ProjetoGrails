@@ -25,7 +25,7 @@ class AdminController {
     // O usuário 'admin' não tem perfil 
     def isSuperAdmin(){
         if(springSecurityService.currentUser.username == 'admin'){
-            redirect action: 'list'
+            redirect action: 'control'
         }
     }
 
