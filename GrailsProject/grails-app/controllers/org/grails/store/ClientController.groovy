@@ -36,6 +36,10 @@ class ClientController {
             return
         }
 
+        if (!clientInstance.authorities.contains(Role.findByAuthority('ROLE_USER'))) {
+            UserRole.create clientInstance, Role.findByAuthority('ROLE_USER')
+        }
+
 		flash.message = message(code: 'default.created.message', args: [message(code: 'client.label', default: 'Client'), clientInstance.id])
         redirect(action: "welcome", id: clientInstance.id)
     }
