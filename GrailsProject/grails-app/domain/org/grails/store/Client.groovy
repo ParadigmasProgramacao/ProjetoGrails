@@ -30,9 +30,9 @@ class Client extends User{
     }
     
 	static	constraints = {
-		cpf blank:false, unique: true 
+		cpf blank:false, unique: true, matches:"\\d{3}.\\d{3}.\\d{3}-\\d{2}"
 		name blank: false
-		email blank: false, unique: true
+		email blank: false, unique: true, email:true
 		endereco blank:false
 		cep blank:false, matches: "\\d{5}-\\d{3}"
     }

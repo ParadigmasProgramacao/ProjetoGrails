@@ -16,6 +16,30 @@
 
 	<table class="table">
 		<tbody>
+			<tr class="prop">
+				<td valign="top" class="name"><g:message code="admin.name.label" default="Name" /></td>
+				
+				<td valign="top" class="value">${fieldValue(bean: adminInstance, field: "name")}</td>
+				
+			</tr>
+			<tr class="prop">
+				<td valign="top" class="name"><g:message code="admin.username.label" default="Username" /></td>
+				
+				<td valign="top" class="value">${fieldValue(bean: adminInstance, field: "username")}</td>
+				
+			</tr>
+			<tr class="prop">
+				<td valign="top" class="name"><g:message code="admin.email.label" default="Email" /></td>
+				
+				<td valign="top" class="value">${fieldValue(bean: adminInstance, field: "email")}</td>
+				
+			</tr>		
+			<tr class="prop">
+				<td valign="top" class="name"><g:message code="admin.accountLocked.label" default="Account Locked" /></td>
+				
+				<td valign="top" class="value"><g:formatBoolean boolean="${adminInstance?.accountLocked}" /></td>
+				
+			</tr>
 		
 			<tr class="prop">
 				<td valign="top" class="name"><g:message code="admin.cep.label" default="Cep" /></td>
@@ -32,23 +56,9 @@
 			</tr>
 		
 			<tr class="prop">
-				<td valign="top" class="name"><g:message code="admin.email.label" default="Email" /></td>
-				
-				<td valign="top" class="value">${fieldValue(bean: adminInstance, field: "email")}</td>
-				
-			</tr>
-		
-			<tr class="prop">
 				<td valign="top" class="name"><g:message code="admin.endereco.label" default="Endereco" /></td>
 				
 				<td valign="top" class="value">${fieldValue(bean: adminInstance, field: "endereco")}</td>
-				
-			</tr>
-		
-			<tr class="prop">
-				<td valign="top" class="name"><g:message code="admin.name.label" default="Name" /></td>
-				
-				<td valign="top" class="value">${fieldValue(bean: adminInstance, field: "name")}</td>
 				
 			</tr>
 		
@@ -62,6 +72,7 @@
 		</tbody>
 	</table>
 </section>
+
 
 </body>
 
