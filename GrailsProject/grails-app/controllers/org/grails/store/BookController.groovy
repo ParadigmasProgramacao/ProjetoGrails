@@ -15,16 +15,17 @@ class BookController {
         redirect(action: "list", params: params)
     }
 
-    @Secured(['ROLE_ADMIN', 'ROLE_SUPER'])
+    @Secured(['ROLE_USER', 'ROLE_ADMIN', 'ROLE_SUPER'])
     def list() {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [bookInstanceList: Book.list(params), bookInstanceTotal: Book.count()]
     }
 
+    @Secured(['ROLE_ADMIN', 'ROLE_SUPER'])
     def create() {
         [bookInstance: new Book(params)]
     }
-
+    @Secured(['ROLE_ADMIN', 'ROLE_SUPER'])
     def save() {
         def bookInstance = new Book(params)
         if (!bookInstance.save(flush: true)) {
@@ -36,7 +37,7 @@ class BookController {
         redirect(action: "show", id: bookInstance.id)
     }
     
-    @Secured(['ROLE_ADMIN', 'ROLE_SUPER'])
+    @Secured(['ROLE_USER', 'ROLE_ADMIN', 'ROLE_SUPER'])
     def show() {
         def bookInstance = Book.get(params.id)
         if (!bookInstance) {

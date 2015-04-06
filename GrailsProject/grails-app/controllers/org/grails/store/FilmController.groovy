@@ -15,16 +15,18 @@ class FilmController {
         redirect(action: "list", params: params)
     }
 
-    @Secured(['ROLE_ADMIN', 'ROLE_SUPER'])
+    @Secured(['ROLE_USER', 'ROLE_ADMIN', 'ROLE_SUPER'])
     def list() {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [filmInstanceList: Film.list(params), filmInstanceTotal: Film.count()]
     }
 
+    @Secured(['ROLE_ADMIN', 'ROLE_SUPER'])
     def create() {
         [filmInstance: new Film(params)]
     }
-
+    
+    @Secured(['ROLE_ADMIN', 'ROLE_SUPER'])
     def save() {
         def filmInstance = new Film(params)
         if (!filmInstance.save(flush: true)) {
@@ -36,7 +38,7 @@ class FilmController {
         redirect(action: "show", id: filmInstance.id)
     }
 
-    @Secured(['ROLE_ADMIN', 'ROLE_SUPER'])
+    @Secured(['ROLE_USER', 'ROLE_ADMIN', 'ROLE_SUPER'])
     def show() {
         def filmInstance = Film.get(params.id)
         if (!filmInstance) {
