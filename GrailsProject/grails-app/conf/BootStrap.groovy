@@ -2,6 +2,7 @@ import org.grails.store.User
 import org.grails.store.UserRole
 import org.grails.store.Role
 import org.grails.store.Admin
+import org.grails.store.Book
 
 class BootStrap {
 
@@ -17,6 +18,28 @@ class BootStrap {
     		superUser.save(flush: true)
     		UserRole.create superUser, superAdminRole, true
     	}
+
+
+
+        def genreBook = ["Novel", "Poem", "Drama", "Graphic Novel", "Comedy", "Non fiction"]
+        def book = new Book();
+        def random = new Random();
+        def rPrice = random.nextInt(70)
+        def rGenre = random.nextInt() % 70 + 52
+        for(def i in 1..22)
+        {
+            rPrice = random.nextInt(70) + 52
+            rGenre = random.nextInt() % 6
+           book = new Book(
+                    name: "Book ${i}",
+                    description: "book of ${genreBook.getAt(rGenre)}",
+                    price: rPrice,
+                    genre: "${genreBook.getAt(rGenre)}",
+                    author: "Best Author",
+                    publisher: "Publisher1",
+                    publicationYear: "2014")
+            book.save(failOnError: true)
+        }
 
     }
 
