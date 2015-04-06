@@ -11,6 +11,8 @@ class User {
 	boolean accountLocked
 	boolean passwordExpired
 
+	static hasMany = [product: Product]
+
 	static constraints = {
 		username blank: false, unique: true
 		password blank: false
