@@ -7,15 +7,13 @@
 <body>
 	<h1>Lista dos produtos encontrados</h1>
 	<g:each var="product" in="${searchResult?.results}">
-		Testando variável type = ${product.type}
-
 		<g:set var="type" value="${product.type}" />
 		<g:if  test="${type.equals('book')}">
-			Entrou no if<br>
+			${product.type} | ${product.name} | ${product.description} | ${product.price} | ${product.publicationYear} | <br>  
 		</g:if>
 
 		<g:else>
-			Entrou no else<br>
+			${product.type} | ${product.name} | ${product.description} | ${product.price} | ${product.releaseYear} | <br>  
 		</g:else>
 	</g:each>
 </body>

@@ -4,7 +4,7 @@ package org.grails.store
  * Product
  * A domain class describes the data object and it's mapping to the database
  */
-class Product {
+class Product extends com.metasieve.shoppingcart.Shoppable{
 
 	String name
 	String description
