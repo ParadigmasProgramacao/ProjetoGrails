@@ -47,7 +47,7 @@
 					<g:each var="product" in="${searchResult?.results}">
 						<g:if test="${product.type.equals('book')}" >
 							<tr>
-								<td><g:link action="show" id="${product.id}">${fieldValue(bean: product, field: "name")}</g:link></td>
+								<td><g:link controller="book" action="show" id="${product.id}">${fieldValue(bean: product, field: "name")}</g:link></td>
 				
 								<td>${fieldValue(bean: product, field: "description")}</td>
 							
@@ -93,7 +93,7 @@
 					<g:each var="product" in="${searchResult?.results}">
 						<g:if test="${product.type.equals('film')}" >
 							<tr>
-								<td><g:link action="show" id="${product.id}">${fieldValue(bean: product, field: "name")}</g:link></td>
+								<td><g:link controller="film"action="show" id="${product.id}">${fieldValue(bean: product, field: "name")}</g:link></td>
 				
 								<td>${fieldValue(bean: product, field: "description")}</td>
 							
@@ -124,9 +124,9 @@
 		</g:if>
 	</g:if>
 
-	<g:else>
+	<g:if test="${hasFilm != 1 && hasBook != 1}">
 			<h1>Nothing was found with that name</h1>
-	</g:else>
+	</g:if>
 	
 </body>
 

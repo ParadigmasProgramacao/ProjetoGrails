@@ -6,7 +6,7 @@
 </head>
 
 <body>
-	<h1> Procure um produto</h1>
+	<h1> Search a Product</h1>
 	<div class="searchForm">
 		<g:form controller="searchable">
         <g:textField name="q" value=""/>
