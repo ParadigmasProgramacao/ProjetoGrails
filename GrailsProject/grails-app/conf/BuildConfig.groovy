@@ -70,7 +70,5 @@ grails.project.dependency.resolution = {
         compile ":paypal:0.6.10"
         
         compile ":searchable:0.6.9"
-
-        compile ":shopping-cart:0.8.2"
     }
 }

@@ -2,14 +2,6 @@
 
 
 
-			<div class="control-group fieldcontain ${hasErrors(bean: filmInstance, field: 'shoppingItem', 'error')} ">
-				<label for="shoppingItem" class="control-label"><g:message code="film.shoppingItem.label" default="Shopping Item" /></label>
-				<div class="controls">
-					<g:select id="shoppingItem" name="shoppingItem.id" from="${com.metasieve.shoppingcart.ShoppingItem.list()}" optionKey="id" value="${filmInstance?.shoppingItem?.id}" class="many-to-one" noSelection="['null': '']"/>
-					<span class="help-inline">${hasErrors(bean: filmInstance, field: 'shoppingItem', 'error')}</span>
-				</div>
-			</div>
-
 			<div class="control-group fieldcontain ${hasErrors(bean: filmInstance, field: 'name', 'error')} required">
 				<label for="name" class="control-label"><g:message code="film.name.label" default="Name" /><span class="required-indicator">*</span></label>
 				<div class="controls">
