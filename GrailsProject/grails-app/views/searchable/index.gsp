@@ -36,39 +36,41 @@
 					<tr>
 						<g:sortableColumn property="name" title="Name" />
 						<g:sortableColumn property="description" title="Description" />
-						<g:sortableColumn property="price" title="Price" />
 						<g:sortableColumn property="genre" title="Genre" />
 						<g:sortableColumn property="author" title="Author" />
 						<g:sortableColumn property="publisher" title="Publisher" />
+						<g:sortableColumn property="price" title="Price" />
 						<g:sortableColumn property="paypal" title="PayPal" />
 					</tr>
 				</thead>
 				<tbody>
 					<g:each var="product" in="${searchResult?.results}">
-						<tr>
-							<td><g:link action="show" id="${product.id}">${fieldValue(bean: product, field: "name")}</g:link></td>
-			
-							<td>${fieldValue(bean: product, field: "description")}</td>
-						
-							<td>${fieldValue(bean: product, field: "price")}</td>
-						
-							<td>${fieldValue(bean: product, field: "genre")}</td>
-						
-							<td>${fieldValue(bean: product, field: "author")}</td>
-							<td>${fieldValue(bean: product, field: "publisher")}</td>
+						<g:if test="${product.type.equals('book')}" >
+							<tr>
+								<td><g:link action="show" id="${product.id}">${fieldValue(bean: product, field: "name")}</g:link></td>
+				
+								<td>${fieldValue(bean: product, field: "description")}</td>
+							
+								<td>${fieldValue(bean: product, field: "genre")}</td>
+							
+								<td>${fieldValue(bean: product, field: "author")}</td>
+								<td>${fieldValue(bean: product, field: "publisher")}</td>
 
-							<td> 
-								<paypal:button 
-						            itemName="${product.name}"
-						            itemNumber="${product.id}"
-						            transactionId="${payment?.transId}"
-						            amount="${product.price / 10}"
-						            currency = "BRL"
-						                discountAmount="0"
-						            buyerId= "1"
-						            />
-							</td>
-						</tr>
+								<td>R$ ${fieldValue(bean: product, field: "price")}</td>
+
+								<td> 
+									<paypal:button 
+							            itemName="${product.name}"
+							            itemNumber="${product.id}"
+							            transactionId="${payment?.transId}"
+							            amount="${product.price / 10}"
+							            currency = "BRL"
+							                discountAmount="0"
+							            buyerId= "1"
+							            />
+								</td>
+							</tr>
+						</g:if>
 					</g:each>
 				</tbody>
 			</table>
@@ -82,10 +84,42 @@
 						<g:sortableColumn property="description" title="Description" />
 						<g:sortableColumn property="releaseYear" title="Release Year" />
 						<g:sortableColumn property="genre" title="Genre" />
+						<g:sortableColumn property="runtime" title="Runtime" />
 						<g:sortableColumn property="price" title="Price" />
 						<g:sortableColumn property="paypal" title="PayPal" />
 					</tr>
 				</thead>
+				<tbody>
+					<g:each var="product" in="${searchResult?.results}">
+						<g:if test="${product.type.equals('film')}" >
+							<tr>
+								<td><g:link action="show" id="${product.id}">${fieldValue(bean: product, field: "name")}</g:link></td>
+				
+								<td>${fieldValue(bean: product, field: "description")}</td>
+							
+								<td>${fieldValue(bean: product, field: "releaseYear")}</td>
+							
+								<td>${fieldValue(bean: product, field: "genre")}</td>
+							
+								<td>${fieldValue(bean: product, field: "runtime")}</td>
+
+								<td>R$ ${fieldValue(bean: product, field: "price")}</td>
+
+								<td> 
+									<paypal:button 
+							            itemName="${product.name}"
+							            itemNumber="${product.id}"
+							            transactionId="${payment?.transId}"
+							            amount="${product.price / 10}"
+							            currency = "BRL"
+							                discountAmount="0"
+							            buyerId= "1"
+							            />
+								</td>
+							</tr>
+						</g:if>
+					</g:each>
+				</tbody>
 			</table>
 		</g:if>
 	</g:if>
