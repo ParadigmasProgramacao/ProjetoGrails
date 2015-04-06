@@ -17,6 +17,8 @@
 		<thead>
 			<tr>
 			
+				<th><g:message code="book.shoppingItem.label" default="Shopping Item" /></th>
+			
 				<g:sortableColumn property="name" title="${message(code: 'book.name.label', default: 'Name')}" />
 			
 				<g:sortableColumn property="description" title="${message(code: 'book.description.label', default: 'Description')}" />
@@ -27,15 +29,15 @@
 			
 				<g:sortableColumn property="author" title="${message(code: 'book.author.label', default: 'Author')}" />
 			
-				<g:sortableColumn property="publisher" title="${message(code: 'book.publisher.label', default: 'Publisher')}" />
-			
 			</tr>
 		</thead>
 		<tbody>
 		<g:each in="${bookInstanceList}" status="i" var="bookInstance">
 			<tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
 			
-				<td><g:link action="show" id="${bookInstance.id}">${fieldValue(bean: bookInstance, field: "name")}</g:link></td>
+				<td><g:link action="show" id="${bookInstance.id}">${fieldValue(bean: bookInstance, field: "shoppingItem")}</g:link></td>
+			
+				<td>${fieldValue(bean: bookInstance, field: "name")}</td>
 			
 				<td>${fieldValue(bean: bookInstance, field: "description")}</td>
 			
@@ -44,8 +46,6 @@
 				<td>${fieldValue(bean: bookInstance, field: "genre")}</td>
 			
 				<td>${fieldValue(bean: bookInstance, field: "author")}</td>
-			
-				<td>${fieldValue(bean: bookInstance, field: "publisher")}</td>
 			
 			</tr>
 		</g:each>

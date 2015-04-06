@@ -17,6 +17,8 @@
 		<thead>
 			<tr>
 			
+				<th><g:message code="film.shoppingItem.label" default="Shopping Item" /></th>
+			
 				<g:sortableColumn property="name" title="${message(code: 'film.name.label', default: 'Name')}" />
 			
 				<g:sortableColumn property="description" title="${message(code: 'film.description.label', default: 'Description')}" />
@@ -27,15 +29,15 @@
 			
 				<g:sortableColumn property="releaseYear" title="${message(code: 'film.releaseYear.label', default: 'Release Year')}" />
 			
-				<g:sortableColumn property="runtime" title="${message(code: 'film.runtime.label', default: 'Runtime')}" />
-			
 			</tr>
 		</thead>
 		<tbody>
 		<g:each in="${filmInstanceList}" status="i" var="filmInstance">
 			<tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
 			
-				<td><g:link action="show" id="${filmInstance.id}">${fieldValue(bean: filmInstance, field: "name")}</g:link></td>
+				<td><g:link action="show" id="${filmInstance.id}">${fieldValue(bean: filmInstance, field: "shoppingItem")}</g:link></td>
+			
+				<td>${fieldValue(bean: filmInstance, field: "name")}</td>
 			
 				<td>${fieldValue(bean: filmInstance, field: "description")}</td>
 			
@@ -44,8 +46,6 @@
 				<td>${fieldValue(bean: filmInstance, field: "genre")}</td>
 			
 				<td>${fieldValue(bean: filmInstance, field: "releaseYear")}</td>
-			
-				<td>${fieldValue(bean: filmInstance, field: "runtime")}</td>
 			
 			</tr>
 		</g:each>

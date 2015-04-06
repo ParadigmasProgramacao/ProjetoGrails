@@ -18,6 +18,13 @@
 		<tbody>
 		
 			<tr class="prop">
+				<td valign="top" class="name"><g:message code="book.shoppingItem.label" default="Shopping Item" /></td>
+				
+				<td valign="top" class="value"><g:link controller="shoppingItem" action="show" id="${bookInstance?.shoppingItem?.id}">${bookInstance?.shoppingItem?.encodeAsHTML()}</g:link></td>
+				
+			</tr>
+		
+			<tr class="prop">
 				<td valign="top" class="name"><g:message code="book.name.label" default="Name" /></td>
 				
 				<td valign="top" class="value">${fieldValue(bean: bookInstance, field: "name")}</td>
@@ -63,6 +70,13 @@
 				<td valign="top" class="name"><g:message code="book.publicationYear.label" default="Publication Year" /></td>
 				
 				<td valign="top" class="value">${fieldValue(bean: bookInstance, field: "publicationYear")}</td>
+				
+			</tr>
+		
+			<tr class="prop">
+				<td valign="top" class="name"><g:message code="book.type.label" default="Type" /></td>
+				
+				<td valign="top" class="value">${fieldValue(bean: bookInstance, field: "type")}</td>
 				
 			</tr>
 		

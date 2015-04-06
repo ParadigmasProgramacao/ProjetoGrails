@@ -18,6 +18,13 @@
 		<tbody>
 		
 			<tr class="prop">
+				<td valign="top" class="name"><g:message code="film.shoppingItem.label" default="Shopping Item" /></td>
+				
+				<td valign="top" class="value"><g:link controller="shoppingItem" action="show" id="${filmInstance?.shoppingItem?.id}">${filmInstance?.shoppingItem?.encodeAsHTML()}</g:link></td>
+				
+			</tr>
+		
+			<tr class="prop">
 				<td valign="top" class="name"><g:message code="film.name.label" default="Name" /></td>
 				
 				<td valign="top" class="value">${fieldValue(bean: filmInstance, field: "name")}</td>
@@ -56,6 +63,13 @@
 				<td valign="top" class="name"><g:message code="film.runtime.label" default="Runtime" /></td>
 				
 				<td valign="top" class="value">${fieldValue(bean: filmInstance, field: "runtime")}</td>
+				
+			</tr>
+		
+			<tr class="prop">
+				<td valign="top" class="name"><g:message code="film.type.label" default="Type" /></td>
+				
+				<td valign="top" class="value">${fieldValue(bean: filmInstance, field: "type")}</td>
 				
 			</tr>
 		
