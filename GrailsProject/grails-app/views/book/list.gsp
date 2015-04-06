@@ -21,13 +21,15 @@
 			
 				<g:sortableColumn property="description" title="${message(code: 'book.description.label', default: 'Description')}" />
 			
-				<g:sortableColumn property="price" title="${message(code: 'book.price.label', default: 'Price')}" />
-			
 				<g:sortableColumn property="genre" title="${message(code: 'book.genre.label', default: 'Genre')}" />
 			
 				<g:sortableColumn property="author" title="${message(code: 'book.author.label', default: 'Author')}" />
 			
 				<g:sortableColumn property="publisher" title="${message(code: 'book.publisher.label', default: 'Publisher')}" />
+
+				<g:sortableColumn property="price" title="${message(code: 'book.price.label', default: 'Price')}" />
+
+				<g:sortableColumn property="paypal" title="PayPal" />
 			
 			</tr>
 		</thead>
@@ -39,13 +41,25 @@
 			
 				<td>${fieldValue(bean: bookInstance, field: "description")}</td>
 			
-				<td>${fieldValue(bean: bookInstance, field: "price")}</td>
-			
 				<td>${fieldValue(bean: bookInstance, field: "genre")}</td>
 			
 				<td>${fieldValue(bean: bookInstance, field: "author")}</td>
 			
 				<td>${fieldValue(bean: bookInstance, field: "publisher")}</td>
+
+				<td>R$ ${fieldValue(bean: bookInstance, field: "price")}</td>
+
+				<td> 
+									<paypal:button 
+							            itemName="${bookInstance.name}"
+							            itemNumber="${bookInstance.id}"
+							            transactionId="${payment?.transId}"
+							            amount="${bookInstance.price / 10}"
+							            currency = "BRL"
+							                discountAmount="0"
+							            buyerId= "1"
+							            />
+								</td>
 			
 			</tr>
 		</g:each>

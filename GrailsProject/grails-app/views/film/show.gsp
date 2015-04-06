@@ -16,6 +16,13 @@
 
 	<table class="table">
 		<tbody>
+
+			<tr class="prop">
+				<td valign="top" class="name"><g:message code="film.type.label" default="Type" /></td>
+				
+				<td valign="top" class="value">${fieldValue(bean: filmInstance, field: "type")}</td>
+				
+			</tr>
 		
 			<tr class="prop">
 				<td valign="top" class="name"><g:message code="film.name.label" default="Name" /></td>
@@ -28,13 +35,6 @@
 				<td valign="top" class="name"><g:message code="film.description.label" default="Description" /></td>
 				
 				<td valign="top" class="value">${fieldValue(bean: filmInstance, field: "description")}</td>
-				
-			</tr>
-		
-			<tr class="prop">
-				<td valign="top" class="name"><g:message code="film.price.label" default="Price" /></td>
-				
-				<td valign="top" class="value">${fieldValue(bean: filmInstance, field: "price")}</td>
 				
 			</tr>
 		
@@ -60,11 +60,29 @@
 			</tr>
 		
 			<tr class="prop">
-				<td valign="top" class="name"><g:message code="film.type.label" default="Type" /></td>
+				<td valign="top" class="name"><g:message code="film.price.label" default="Price" /></td>
 				
-				<td valign="top" class="value">${fieldValue(bean: filmInstance, field: "type")}</td>
+				<td valign="top" class="value">R$ ${fieldValue(bean: filmInstance, field: "price")}</td>
 				
 			</tr>
+
+			<tr class="prop">
+				<td valign="top" class="name"><g:message code="book.type.label" default="PayPal" /></td>
+				
+				<td valign="top" class="value">
+					<paypal:button 
+							            itemName="${filmInstance.name}"
+							            itemNumber="${filmInstance.id}"
+							            transactionId="${payment?.transId}"
+							            amount="${filmInstance.price / 10}"
+							            currency = "BRL"
+							                discountAmount="0"
+							            buyerId= "1"
+							            />
+				</td>
+				
+			</tr>
+			
 		
 		</tbody>
 	</table>
