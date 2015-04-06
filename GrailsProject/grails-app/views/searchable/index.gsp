@@ -43,6 +43,34 @@
 						<g:sortableColumn property="paypal" title="PayPal" />
 					</tr>
 				</thead>
+				<tbody>
+					<g:each var="product" in="${searchResult?.results}">
+						<tr>
+							<td><g:link action="show" id="${product.id}">${fieldValue(bean: product, field: "name")}</g:link></td>
+			
+							<td>${fieldValue(bean: product, field: "description")}</td>
+						
+							<td>${fieldValue(bean: product, field: "price")}</td>
+						
+							<td>${fieldValue(bean: product, field: "genre")}</td>
+						
+							<td>${fieldValue(bean: product, field: "author")}</td>
+							<td>${fieldValue(bean: product, field: "publisher")}</td>
+
+							<td> 
+								<paypal:button 
+						            itemName="${product.name}"
+						            itemNumber="${product.id}"
+						            transactionId="${payment?.transId}"
+						            amount="${product.price / 10}"
+						            currency = "BRL"
+						                discountAmount="0"
+						            buyerId= "1"
+						            />
+							</td>
+						</tr>
+					</g:each>
+				</tbody>
 			</table>
 		</g:if>
 		<g:if test="${isFilm== 1}">
@@ -70,16 +98,7 @@
 		<g:set var="type" value="${product.type}" />
 			
 
-		<paypal:button 
-			itemName="${product.name}"
-			itemNumber="${product.id}"
-			transactionId="${payment?.transId}"
-			amount="${product.price / 10}"
-			currency = "BRL"
-		        discountAmount="0"
-			buyerId= "1"
-			/>
-		<br>
+		
 	</g:each>
 	
 </body>
