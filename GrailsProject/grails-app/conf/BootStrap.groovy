@@ -20,6 +20,12 @@ class BootStrap {
     		UserRole.create superUser, superAdminRole, true
     	}
 
+        if(User.findByUsername('ana') == null){
+            def user = new User(username: 'ana', password: '123456', enabled: true)
+            user.save(flush: true)
+            UserRole. create user, userRole, true
+        }
+
         def genreBook = ["Novel", "Poem", "Drama", "Graphic Novel", "Comedy", "Non fiction"]
         def genreFilm = ["Action", "Adventure", "Comedy", "Crime", "Horror", "Romance", "Historical", "Animation"]
         def book = new Book();

@@ -1,7 +1,7 @@
 <html>
 
 <head>
-	<title><g:message code="default.welcome.title" args="[meta(name:'app.name')]"/> </title>
+	<title>e-Cult :)</title>
 	<meta name="layout" content="kickstart" />
 </head>
 

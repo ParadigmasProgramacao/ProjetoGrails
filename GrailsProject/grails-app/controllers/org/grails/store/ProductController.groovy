@@ -15,7 +15,7 @@ class ProductController {
         redirect(action: "list", params: params)
     }
     
-    @Secured(['ROLE_ADMIN', 'ROLE_SUPER'])
+    
     def list() {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [productInstanceList: Product.list(params), productInstanceTotal: Product.count()]

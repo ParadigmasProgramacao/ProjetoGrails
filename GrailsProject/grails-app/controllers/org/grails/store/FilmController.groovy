@@ -15,7 +15,7 @@ class FilmController {
         redirect(action: "list", params: params)
     }
 
-    @Secured(['ROLE_USER', 'ROLE_ADMIN', 'ROLE_SUPER'])
+    
     def list() {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [filmInstanceList: Film.list(params), filmInstanceTotal: Film.count()]

@@ -49,17 +49,22 @@
 
 				<td>R$ ${fieldValue(bean: filmInstance, field: "price")}</td>
 
-				<td> 
+				<td>
+				<sec:ifNotLoggedIn>
+					 <g:link controller='login' action='auth'>Login</g:link>
+				</sec:ifNotLoggedIn>
+				<sec:ifAllGranted roles="ROLE_USER">
 									<paypal:button 
 							            itemName="${filmInstance.name}"
 							            itemNumber="${filmInstance.id}"
 							            transactionId="${payment?.transId}"
-							            amount="${filmInstance.price / 10}"
+							            amount="${filmInstance.price}"
 							            currency = "BRL"
 							                discountAmount="0"
 							            buyerId= "1"
 							            />
-								</td>
+					</sec:ifAllGranted>
+				</td>
 			
 			</tr>
 		</g:each>

@@ -48,18 +48,24 @@
 				<td>${fieldValue(bean: bookInstance, field: "publisher")}</td>
 
 				<td>R$ ${fieldValue(bean: bookInstance, field: "price")}</td>
-
-				<td> 
+				
+				<td>
+				<sec:ifNotLoggedIn>
+					 <g:link controller='login' action='auth'>Login</g:link>
+				</sec:ifNotLoggedIn>
+				<sec:ifAllGranted roles="ROLE_USER">
 									<paypal:button 
 							            itemName="${bookInstance.name}"
 							            itemNumber="${bookInstance.id}"
 							            transactionId="${payment?.transId}"
-							            amount="${bookInstance.price / 10}"
+							            amount="${bookInstance.price}"
 							            currency = "BRL"
 							                discountAmount="0"
 							            buyerId= "1"
-							            />
-								</td>
+							         />
+					</sec:ifAllGranted>
+				</td>
+				
 			
 			</tr>
 		</g:each>
