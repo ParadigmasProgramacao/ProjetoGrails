@@ -20,29 +20,6 @@ class BootStrap {
     		UserRole.create superUser, superAdminRole, true
     	}
 
-
-<<<<<<< HEAD
-        def book = new Book(
-                    name: "Drama1",
-                    description: "Best book of Drama",
-                    price: 65,
-                    genre: "Drama",
-                    author: "Best Author",
-                    publisher: "Publisher1",
-                    publicationYear: "2014")
-        book.save(failOnError: true)
-
-        book = new Book(
-                    name: "Drama2",
-                    description: "Second Best book of Drama",
-                    price: 90,
-                    genre: "Drama",
-                    author: "Best Author",
-                    publisher: "Publisher2",
-                    publicationYear: "2011")
-        book.save(failOnError: true)
-=======
-
         def genreBook = ["Novel", "Poem", "Drama", "Graphic Novel", "Comedy", "Non fiction"]
         def genreFilm = ["Action", "Adventure", "Comedy", "Crime", "Horror", "Romance", "Historical", "Animation"]
         def book = new Book();
@@ -80,8 +57,6 @@ class BootStrap {
                     releaseYear: 2014)
             film.save(failOnError: true)
         }
-
->>>>>>> dev2
     }
 
     def destroy = {

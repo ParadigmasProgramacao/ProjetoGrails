@@ -1,6 +1,7 @@
 package org.grails.store
 
 import org.springframework.dao.DataIntegrityViolationException
+import grails.plugins.springsecurity.Secured
 
 /**
  * FilmController
@@ -14,6 +15,7 @@ class FilmController {
         redirect(action: "list", params: params)
     }
 
+    @Secured(['ROLE_ADMIN', 'ROLE_SUPER'])
     def list() {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [filmInstanceList: Film.list(params), filmInstanceTotal: Film.count()]
@@ -34,6 +36,7 @@ class FilmController {
         redirect(action: "show", id: filmInstance.id)
     }
 
+    @Secured(['ROLE_ADMIN', 'ROLE_SUPER'])
     def show() {
         def filmInstance = Film.get(params.id)
         if (!filmInstance) {
@@ -45,6 +48,7 @@ class FilmController {
         [filmInstance: filmInstance]
     }
 
+    @Secured(['ROLE_ADMIN', 'ROLE_SUPER'])
     def edit() {
         def filmInstance = Film.get(params.id)
         if (!filmInstance) {
@@ -56,6 +60,7 @@ class FilmController {
         [filmInstance: filmInstance]
     }
 
+    @Secured(['ROLE_ADMIN', 'ROLE_SUPER'])
     def update() {
         def filmInstance = Film.get(params.id)
         if (!filmInstance) {
@@ -86,6 +91,7 @@ class FilmController {
         redirect(action: "show", id: filmInstance.id)
     }
 
+    @Secured(['ROLE_ADMIN', 'ROLE_SUPER'])
     def delete() {
         def filmInstance = Film.get(params.id)
         if (!filmInstance) {

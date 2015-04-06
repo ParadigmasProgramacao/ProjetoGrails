@@ -1,6 +1,7 @@
 package org.grails.store
 
 import org.springframework.dao.DataIntegrityViolationException
+import grails.plugins.springsecurity.Secured
 
 /**
  * BookController
@@ -14,6 +15,7 @@ class BookController {
         redirect(action: "list", params: params)
     }
 
+    @Secured(['ROLE_ADMIN', 'ROLE_SUPER'])
     def list() {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [bookInstanceList: Book.list(params), bookInstanceTotal: Book.count()]
@@ -33,7 +35,8 @@ class BookController {
 		flash.message = message(code: 'default.created.message', args: [message(code: 'book.label', default: 'Book'), bookInstance.id])
         redirect(action: "show", id: bookInstance.id)
     }
-
+    
+    @Secured(['ROLE_ADMIN', 'ROLE_SUPER'])
     def show() {
         def bookInstance = Book.get(params.id)
         if (!bookInstance) {
@@ -45,6 +48,7 @@ class BookController {
         [bookInstance: bookInstance]
     }
 
+    @Secured(['ROLE_ADMIN', 'ROLE_SUPER'])
     def edit() {
         def bookInstance = Book.get(params.id)
         if (!bookInstance) {
@@ -56,6 +60,7 @@ class BookController {
         [bookInstance: bookInstance]
     }
 
+    @Secured(['ROLE_ADMIN', 'ROLE_SUPER'])
     def update() {
         def bookInstance = Book.get(params.id)
         if (!bookInstance) {
@@ -86,6 +91,7 @@ class BookController {
         redirect(action: "show", id: bookInstance.id)
     }
 
+    @Secured(['ROLE_ADMIN', 'ROLE_SUPER'])
     def delete() {
         def bookInstance = Book.get(params.id)
         if (!bookInstance) {

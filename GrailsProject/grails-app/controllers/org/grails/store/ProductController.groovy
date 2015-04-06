@@ -1,6 +1,7 @@
 package org.grails.store
 
 import org.springframework.dao.DataIntegrityViolationException
+import grails.plugins.springsecurity.Secured
 
 /**
  * ProductController
@@ -13,7 +14,8 @@ class ProductController {
     def index() {
         redirect(action: "list", params: params)
     }
-
+    
+    @Secured(['ROLE_ADMIN', 'ROLE_SUPER'])
     def list() {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [productInstanceList: Product.list(params), productInstanceTotal: Product.count()]
@@ -34,6 +36,7 @@ class ProductController {
         redirect(action: "show", id: productInstance.id)
     }
 
+    @Secured(['ROLE_ADMIN', 'ROLE_SUPER'])
     def show() {
         def productInstance = Product.get(params.id)
         if (!productInstance) {
@@ -45,6 +48,7 @@ class ProductController {
         [productInstance: productInstance]
     }
 
+    @Secured(['ROLE_ADMIN', 'ROLE_SUPER'])
     def edit() {
         def productInstance = Product.get(params.id)
         if (!productInstance) {
@@ -56,6 +60,7 @@ class ProductController {
         [productInstance: productInstance]
     }
 
+    @Secured(['ROLE_ADMIN', 'ROLE_SUPER'])
     def update() {
         def productInstance = Product.get(params.id)
         if (!productInstance) {
@@ -86,6 +91,7 @@ class ProductController {
         redirect(action: "show", id: productInstance.id)
     }
 
+    @Secured(['ROLE_ADMIN', 'ROLE_SUPER'])
     def delete() {
         def productInstance = Product.get(params.id)
         if (!productInstance) {

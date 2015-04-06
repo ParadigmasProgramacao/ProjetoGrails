@@ -6,7 +6,7 @@
 
 <body>
 
-	<h1> Procure um produto</h1>
+	<h1> Search a product</h1>
 	<div class="searchForm">
 		<g:form controller="searchable">
         <g:textField name="q" value=""/>
@@ -15,21 +15,21 @@
 	</div>
 
 	<g:set var="iterator" value="${0}" />
-	<g:set var="isBook" value="${0}" />
-	<g:set var="isFilm" value="${0}" />
+	<g:set var="hasBook" value="${0}" />
+	<g:set var="hasFilm" value="${0}" />
 	<g:each var="product" in="${searchResult?.results}">
 		<g:set var="iterator" value="${iterator+1}" />
 		
 		<g:if test="${product.type.equals('book')}" >
-			<g:set var="isBook" value="${1}" />
+			<g:set var="hasBook" value="${1}" />
 		</g:if>
 		<g:elseif test="${product.type.equals('film')}" >
-			<g:set var="isFilm" value="${1}" />
+			<g:set var="hasFilm" value="${1}" />
 		</g:elseif>
 	</g:each>
 
 	<g:if test="${iterator >= 0}">
-		<g:if test="${isBook == 1}">
+		<g:if test="${hasBook == 1}">
 			<h1>Books found</h1>
 			<table class="table table-bordered margin-top-medium">
 				<thead>
@@ -75,7 +75,7 @@
 				</tbody>
 			</table>
 		</g:if>
-		<g:if test="${isFilm== 1}">
+		<g:if test="${hasFilm == 1}">
 			<h1>Films found</h1>
 			<table class="table table-bordered margin-top-medium">
 				<thead>
@@ -124,16 +124,9 @@
 		</g:if>
 	</g:if>
 
-	<g:if test="${isBook == 0}" && test="${isFilm == 0}" >
+	<g:else>
 			<h1>Nothing was found with that name</h1>
-	</g:if>
-
-	<g:each var="product" in="${searchResult?.results}">
-		<g:set var="type" value="${product.type}" />
-			
-
-		
-	</g:each>
+	</g:else>
 	
 </body>
 
