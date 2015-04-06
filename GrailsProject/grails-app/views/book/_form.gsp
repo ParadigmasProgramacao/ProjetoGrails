@@ -58,3 +58,11 @@
 				</div>
 			</div>
 
+			<div class="control-group fieldcontain ${hasErrors(bean: bookInstance, field: 'type', 'error')} required">
+				<label for="type" class="control-label"><g:message code="book.type.label" default="Type" /><span class="required-indicator">*</span></label>
+				<div class="controls">
+					<g:select name="type" from="${bookInstance.constraints.type.inList}" required="" value="${bookInstance?.type}" valueMessagePrefix="book.type"/>
+					<span class="help-inline">${hasErrors(bean: bookInstance, field: 'type', 'error')}</span>
+				</div>
+			</div>
+

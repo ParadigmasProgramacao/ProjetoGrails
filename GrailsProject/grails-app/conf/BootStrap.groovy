@@ -21,6 +21,7 @@ class BootStrap {
     	}
 
 
+<<<<<<< HEAD
         def book = new Book(
                     name: "Drama1",
                     description: "Best book of Drama",
@@ -40,8 +41,50 @@ class BootStrap {
                     publisher: "Publisher2",
                     publicationYear: "2011")
         book.save(failOnError: true)
+=======
+
+        def genreBook = ["Novel", "Poem", "Drama", "Graphic Novel", "Comedy", "Non fiction"]
+        def genreFilm = ["Action", "Adventure", "Comedy", "Crime", "Horror", "Romance", "Historical", "Animation"]
+        def book = new Book();
+        def film = new Film();
+        def random = new Random();
+        def rPrice = random.nextInt(70)
+        def rGenre = random.nextInt() % 70 + 52
+        for(def i in 1..22)
+        {
+            rPrice = random.nextInt(70) + 52
+            rGenre = random.nextInt() % 6
+            book = new Book(
+                    name: "Book ${i}",
+                    description: "book of ${genreBook.getAt(rGenre)}",
+                    price: rPrice,
+                    type: "book",
+                    genre: "${genreBook.getAt(rGenre)}",
+                    author: "Best Author",
+                    publisher: "Publisher1",
+                    publicationYear: 2014)
+            book.save(failOnError: true)
+        }
+
+        for(i in 1..20)
+        {
+            rPrice = random.nextInt(30) + 42
+            rGenre = random.nextInt() % 8
+            film = new Film(
+                    name: "Film ${i}",
+                    description: "film of ${genreFilm.getAt(rGenre)}",
+                    price: rPrice,
+                    type: "film",
+                    genre: "${genreFilm.getAt(rGenre)}",
+                    runtime: 160,
+                    releaseYear: 2014)
+            film.save(failOnError: true)
+        }
+
+>>>>>>> dev2
     }
 
     def destroy = {
     }
 }
+

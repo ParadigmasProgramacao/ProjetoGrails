@@ -26,10 +26,10 @@
 				</div>
 			</div>
 
-			<div class="control-group fieldcontain ${hasErrors(bean: filmInstance, field: 'genre', 'error')} ">
-				<label for="genre" class="control-label"><g:message code="film.genre.label" default="Genre" /></label>
+			<div class="control-group fieldcontain ${hasErrors(bean: filmInstance, field: 'genre', 'error')} required">
+				<label for="genre" class="control-label"><g:message code="film.genre.label" default="Genre" /><span class="required-indicator">*</span></label>
 				<div class="controls">
-					<g:select name="genre" from="${filmInstance.constraints.genre.inList}" value="${filmInstance?.genre}" valueMessagePrefix="film.genre" noSelection="['': '']"/>
+					<g:select name="genre" from="${filmInstance.constraints.genre.inList}" required="" value="${filmInstance?.genre}" valueMessagePrefix="film.genre"/>
 					<span class="help-inline">${hasErrors(bean: filmInstance, field: 'genre', 'error')}</span>
 				</div>
 			</div>
@@ -47,6 +47,14 @@
 				<div class="controls">
 					<g:field type="number" name="runtime" required="" value="${filmInstance.runtime}"/>
 					<span class="help-inline">${hasErrors(bean: filmInstance, field: 'runtime', 'error')}</span>
+				</div>
+			</div>
+
+			<div class="control-group fieldcontain ${hasErrors(bean: filmInstance, field: 'type', 'error')} required">
+				<label for="type" class="control-label"><g:message code="film.type.label" default="Type" /><span class="required-indicator">*</span></label>
+				<div class="controls">
+					<g:select name="type" from="${filmInstance.constraints.type.inList}" required="" value="${filmInstance?.type}" valueMessagePrefix="film.type"/>
+					<span class="help-inline">${hasErrors(bean: filmInstance, field: 'type', 'error')}</span>
 				</div>
 			</div>
 

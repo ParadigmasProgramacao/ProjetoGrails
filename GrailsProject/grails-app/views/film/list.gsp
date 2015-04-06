@@ -21,13 +21,15 @@
 			
 				<g:sortableColumn property="description" title="${message(code: 'film.description.label', default: 'Description')}" />
 			
-				<g:sortableColumn property="price" title="${message(code: 'film.price.label', default: 'Price')}" />
-			
 				<g:sortableColumn property="genre" title="${message(code: 'film.genre.label', default: 'Genre')}" />
 			
 				<g:sortableColumn property="releaseYear" title="${message(code: 'film.releaseYear.label', default: 'Release Year')}" />
 			
 				<g:sortableColumn property="runtime" title="${message(code: 'film.runtime.label', default: 'Runtime')}" />
+
+				<g:sortableColumn property="price" title="${message(code: 'film.price.label', default: 'Price')}" />
+
+				<g:sortableColumn property="paypal" title="PayPal" />
 			
 			</tr>
 		</thead>
@@ -39,13 +41,25 @@
 			
 				<td>${fieldValue(bean: filmInstance, field: "description")}</td>
 			
-				<td>${fieldValue(bean: filmInstance, field: "price")}</td>
-			
 				<td>${fieldValue(bean: filmInstance, field: "genre")}</td>
 			
 				<td>${fieldValue(bean: filmInstance, field: "releaseYear")}</td>
 			
 				<td>${fieldValue(bean: filmInstance, field: "runtime")}</td>
+
+				<td>R$ ${fieldValue(bean: filmInstance, field: "price")}</td>
+
+				<td> 
+									<paypal:button 
+							            itemName="${filmInstance.name}"
+							            itemNumber="${filmInstance.id}"
+							            transactionId="${payment?.transId}"
+							            amount="${filmInstance.price / 10}"
+							            currency = "BRL"
+							                discountAmount="0"
+							            buyerId= "1"
+							            />
+								</td>
 			
 			</tr>
 		</g:each>

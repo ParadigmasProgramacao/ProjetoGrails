@@ -4,12 +4,13 @@ package org.grails.store
  * Product
  * A domain class describes the data object and it's mapping to the database
  */
-class Product {
+class Product{
 
 	String name
 	String description
 	Float price
 	String genre
+	String type
 
 	static searchable = true
   //Integer codProduct // codProduct == id 
