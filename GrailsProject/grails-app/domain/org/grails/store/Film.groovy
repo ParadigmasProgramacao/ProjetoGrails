@@ -28,7 +28,7 @@ class Film extends Product {
 		name blank:false
 		description blank:false
 		price blank:false, matches:"\\*.d{2}\\"
-		genre inList: ["Action", "Adventure", "Comedy", "Crime", "Horror", "Romance", "Historical", "Animation"]
+		genre blank:false, inList: ["Action", "Adventure", "Comedy", "Crime", "Horror", "Romance", "Historical", "Animation"]
 		releaseYear blank: false
 		runtime blank: false
 

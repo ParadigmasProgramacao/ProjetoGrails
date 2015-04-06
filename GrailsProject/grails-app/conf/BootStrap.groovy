@@ -3,6 +3,7 @@ import org.grails.store.UserRole
 import org.grails.store.Role
 import org.grails.store.Admin
 import org.grails.store.Book
+import org.grails.store.Film
 
 class BootStrap {
 
@@ -22,7 +23,9 @@ class BootStrap {
 
 
         def genreBook = ["Novel", "Poem", "Drama", "Graphic Novel", "Comedy", "Non fiction"]
+        def genreFilm = ["Action", "Adventure", "Comedy", "Crime", "Horror", "Romance", "Historical", "Animation"]
         def book = new Book();
+        def film = new Film();
         def random = new Random();
         def rPrice = random.nextInt(70)
         def rGenre = random.nextInt() % 70 + 52
@@ -30,15 +33,29 @@ class BootStrap {
         {
             rPrice = random.nextInt(70) + 52
             rGenre = random.nextInt() % 6
-           book = new Book(
+            book = new Book(
                     name: "Book ${i}",
                     description: "book of ${genreBook.getAt(rGenre)}",
                     price: rPrice,
                     genre: "${genreBook.getAt(rGenre)}",
                     author: "Best Author",
                     publisher: "Publisher1",
-                    publicationYear: "2014")
+                    publicationYear: 2014)
             book.save(failOnError: true)
+        }
+
+        for(i in 1..20)
+        {
+            rPrice = random.nextInt(30) + 42
+            rGenre = random.nextInt() % 8
+            film = new Film(
+                    name: "Film ${i}",
+                    description: "film of ${genreFilm.getAt(rGenre)}",
+                    price: rPrice,
+                    genre: "${genreFilm.getAt(rGenre)}",
+                    runtime: 160,
+                    releaseYear: 2014)
+            film.save(failOnError: true)
         }
 
     }
@@ -46,3 +63,4 @@ class BootStrap {
     def destroy = {
     }
 }
+
