@@ -3,6 +3,7 @@ This menu is used to show function that can be triggered on the content (an obje
 -->
 
 <%-- Only show the "Pills" navigation menu if a controller exists (but not for home) --%>
+<sec:ifAnyGranted roles="ROLE_SUPER,ROLE_ADMIN">
 <g:if test="${	params.controller != null
 			&&	params.controller != ''
 			&&	params.controller != 'home'
@@ -30,3 +31,4 @@ This menu is used to show function that can be triggered on the content (an obje
 		
 	</ul>
 </g:if>
+</sec:ifAnyGranted>
