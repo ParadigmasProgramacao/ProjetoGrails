@@ -37,6 +37,7 @@ class BootStrap {
                     name: "Book ${i}",
                     description: "book of ${genreBook.getAt(rGenre)}",
                     price: rPrice,
+                    type: "book",
                     genre: "${genreBook.getAt(rGenre)}",
                     author: "Best Author",
                     publisher: "Publisher1",
@@ -52,6 +53,7 @@ class BootStrap {
                     name: "Film ${i}",
                     description: "film of ${genreFilm.getAt(rGenre)}",
                     price: rPrice,
+                    type: "film",
                     genre: "${genreFilm.getAt(rGenre)}",
                     runtime: 160,
                     releaseYear: 2014)

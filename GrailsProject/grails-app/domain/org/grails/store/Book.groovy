@@ -33,6 +33,7 @@ class Book extends Product {
 		author blank: false	
 		publisher blank: false
 		publicationYear blank: false
+		type blank: false, inList: ["book"]
     }
 	
 	/*

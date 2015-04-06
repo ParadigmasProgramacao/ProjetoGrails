@@ -7,9 +7,10 @@
 <body>
 	<h1>Lista dos produtos encontrados</h1>
 	<g:each var="product" in="${searchResult?.results}">
-		Testando variável price = ${product.price}
+		Testando variável type = ${product.type}
 
-		<g:if env="product" test="${runtime == 140}">
+		<g:set var="type" value="${product.type}" />
+		<g:if  test="${type.equals('book')}">
 			Entrou no if<br>
 		</g:if>
 

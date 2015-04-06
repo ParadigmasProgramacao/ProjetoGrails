@@ -1,7 +1,6 @@
 package org.grails.store
 
 import org.springframework.dao.DataIntegrityViolationException
-import org.compass.core.engine.SearchEngineQueryParseException
 
 /**
  * ProductController
@@ -9,9 +8,7 @@ import org.compass.core.engine.SearchEngineQueryParseException
  */
 class ProductController {
 
-    static String WILDCARD = "*"
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-    def searchableService
 
     def index() {
         redirect(action: "list", params: params)

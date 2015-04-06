@@ -10,6 +10,7 @@ class Product {
 	String description
 	Float price
 	String genre
+	String type
 
 	static searchable = true
   //Integer codProduct // codProduct == id 

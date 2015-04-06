@@ -1,7 +1,6 @@
 package org.grails.store
 
 import org.springframework.dao.DataIntegrityViolationException
-import grails.plugins.springsecurity.Secured
 
 /**
  * BookController
@@ -20,12 +19,10 @@ class BookController {
         [bookInstanceList: Book.list(params), bookInstanceTotal: Book.count()]
     }
 
-    @Secured(['ROLE_ADMIN', 'ROLE_SUPER'])
     def create() {
         [bookInstance: new Book(params)]
     }
 
-    @Secured(['ROLE_ADMIN', 'ROLE_SUPER'])
     def save() {
         def bookInstance = new Book(params)
         if (!bookInstance.save(flush: true)) {
@@ -48,7 +45,6 @@ class BookController {
         [bookInstance: bookInstance]
     }
 
-    @Secured(['ROLE_ADMIN', 'ROLE_SUPER'])
     def edit() {
         def bookInstance = Book.get(params.id)
         if (!bookInstance) {
@@ -60,7 +56,6 @@ class BookController {
         [bookInstance: bookInstance]
     }
 
-    @Secured(['ROLE_ADMIN', 'ROLE_SUPER'])
     def update() {
         def bookInstance = Book.get(params.id)
         if (!bookInstance) {
@@ -91,7 +86,6 @@ class BookController {
         redirect(action: "show", id: bookInstance.id)
     }
 
-    @Secured(['ROLE_ADMIN', 'ROLE_SUPER'])
     def delete() {
         def bookInstance = Book.get(params.id)
         if (!bookInstance) {

@@ -31,6 +31,7 @@ class Film extends Product {
 		genre blank:false, inList: ["Action", "Adventure", "Comedy", "Crime", "Horror", "Romance", "Historical", "Animation"]
 		releaseYear blank: false
 		runtime blank: false
+		type blank: false, inList: ["film"]
 
     }
 	
